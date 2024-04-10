@@ -7,7 +7,7 @@ const style = {
     border: "1px solid black",
     borderRadius: "10px",
     width: "400px",
-    textAlign: "center", 
+    textAlign: "center" as const, 
     boxShadow: "5px 5px 5px #888888"
 }
 
@@ -16,7 +16,14 @@ const imageStyle = {
     height: "150px"
 }
 
-const Weather = ({ city, low, high, condition}) => {
+type WeatherProps = {
+    city: string,
+    low: number,
+    high: number,
+    condition: string
+}
+
+const Weather = ({ city, low, high, condition} : WeatherProps) => {
     return(
         <div style={style}>
             <h1>{city} Weather </h1>
